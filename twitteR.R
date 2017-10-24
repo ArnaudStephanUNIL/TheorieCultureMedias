@@ -21,21 +21,21 @@ write.table(df_15k, file='tweets15k.csv', quote = TRUE, sep=',', col.names = TRU
 test <- read.csv('tweets15k.csv', header = TRUE, sep = ',')
 
 #On prend 1000 tweets du 13 au 16 octobre, sans les RT
-bpt_tweets_1 <- searchTwitter("#BalanceTonPorc",n=1000,since="2017-10-13",until="2017-10-16")
+bpt_tweets_1 <- searchTwitter("#BalanceTonPorc",n=1500,since="2017-10-13",until="2017-10-16")
 df_13_16 <- twListToDF(strip_retweets(bpt_tweets_1, strip_manual=T, strip_mt=T))
 #On en fait un fichier CSV
 write.table(df_13_16, file='tweets13_16.csv', quote = FALSE, sep=',', col.names = TRUE,
             row.names = FALSE)
 
 #On prend 1000 tweets du 16 au 19 octobre, sans les RT
-bpt_tweets_2 <- searchTwitter("#BalanceTonPorc",n=1000,since="2017-10-16",until="2017-10-19")
+bpt_tweets_2 <- searchTwitter("#BalanceTonPorc",n=1500,since="2017-10-16",until="2017-10-19")
 df_16_19 <- twListToDF(strip_retweets(bpt_tweets_2, strip_manual=T, strip_mt=T))
 #On en fait un fichier CSV
 write.table(df_16_19, file='tweets16_19.csv', quote = FALSE, sep=',', col.names = TRUE,
             row.names = FALSE)
 
 #On prend 1000 tweets du 19 au 22 octobre, sans les RT
-bpt_tweets_3 <- searchTwitter("#BalanceTonPorc",n=1000,since="2017-10-19",until="2017-10-22")
+bpt_tweets_3 <- searchTwitter("#BalanceTonPorc",n=1500,since="2017-10-19",until="2017-10-22")
 df_19_22 <- twListToDF(strip_retweets(bpt_tweets_3, strip_manual=T, strip_mt=T))
 #On en fait un fichier CSV
 write.table(df_19_22, file='tweets19_22.csv', quote = FALSE, sep=',', col.names = TRUE,
