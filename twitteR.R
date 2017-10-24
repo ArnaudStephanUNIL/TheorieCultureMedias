@@ -12,17 +12,26 @@ options(digits=1)
 setup_twitter_oauth("2oBeh5pzqXHFNNcfCITXo2e3J", "Mas8sVej4so0oOaSg1TNXfvNgZuzaGOBA2SpeDUBTD8rOJLKt2",
                     "3115642545-wPfP3XRojlvQOyr4jy5gXDpQtcrvxjT2DI4ggMU", "SJ40K4ayEFWjXVGNpwzvmEQw28ObrL8TKXlj73TtSz3cc")
 
-#On prend 15.000 tweets concernant #BalanceTonPorc
+#On prend 15.000 tweets concernant #BalanceTonPorc, sans les RT
 tweets15k <- searchTwitter("#BalanceTonPorc",n=15000)
 df_15k <- twListToDF(strip_retweets(tweets15k,strip_manual = T,strip_mt = T))
+#On en fait un fichier CSV
+write.table(df_15k, file='tweets15k.csv', quote = FALSE, sep=',', col.names = TRUE,
+            row.names = FALSE)
 
-#On prend 2.500 tweets du 13 au 16 octobre, sans les RT
-bpt_tweets_1 <- searchTwitter("#BalanceTonPorc",n=2500,since="2017-10-13",until="2017-10-16")
+#On prend 1000 tweets du 13 au 16 octobre, sans les RT
+bpt_tweets_1 <- searchTwitter("#BalanceTonPorc",n=1000,since="2017-10-13",until="2017-10-16")
 df_13_16 <- twListToDF(strip_retweets(bpt_tweets_1, strip_manual=T, strip_mt=T))
+#On en fait un fichier CSV
+write.table(df_13_16, file='tweets13_16.csv', quote = FALSE, sep=',', col.names = TRUE,
+            row.names = FALSE)
 
-#On prend 2.500 tweets du 16 au 19 octobre, sans les RT
-bpt_tweets_2 <- searchTwitter("#BalanceTonPorc",n=2500,since="2017-10-16",until="2017-10-19")
+#On prend 1000 tweets du 16 au 19 octobre, sans les RT
+bpt_tweets_2 <- searchTwitter("#BalanceTonPorc",n=1000,since="2017-10-16",until="2017-10-19")
 df_16_19 <- twListToDF(strip_retweets(bpt_tweets_2, strip_manual=T, strip_mt=T))
+#On en fait un fichier CSV
+write.table(df_16_19, file='tweets16_19.csv', quote = FALSE, sep=',', col.names = TRUE,
+            row.names = FALSE)
 
 ################################################################
 ############### OPERATIONS SUR LE DF DU 13 AU 16 ###############
